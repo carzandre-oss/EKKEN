@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EKEN STUDIOS - Soluções Digitais Personalizadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --jet-black: #0D0D0D;
+            --onyx: #1A1A1A;
+            --graphite: #333333;
+            --platinum: #E5E5E5;
+        }
+        
+        * {
+            font-family: 'Saira', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--jet-black);
+            color: var(--platinum);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--jet-black) 0%, var(--onyx) 50%, var(--graphite) 100%);
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .founder-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .founder-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .cta-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover:after {
+            left: 100%;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--platinum);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background-color: var(--platinum);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 bg-opacity-90 backdrop-blur-md" style="background-color: rgba(13, 13, 13, 0.9);">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <svg class="w-10 h-10 mr-2" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="50" height="50" rx="10" fill="#333333"/>
+                    <path d="M10 15H40M10 25H40M10 35H40" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M15 10L15 40M25 10L25 40M35 10L35 40" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span class="text-xl font-bold tracking-wider text-white">EKEN STUDIOS</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-platinum hover:text-white">Sobre</a>
+                <a href="#founders" class="nav-link text-platinum hover:text-white">Fundadores</a>
+                <a href="#services" class="nav-link text-platinum hover:text-white">Serviços</a>
+                <a href="#quote" class="nav-link text-platinum hover:text-white">Obtenha um Orçamento</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-platinum focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-onyx">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 text-platinum hover:bg-graphite rounded">Sobre</a>
+                <a href="#founders" class="block px-3 py-2 text-platinum hover:bg-graphite rounded">Fundadores</a>
+                <a href="#services" class="block px-3 py-2 text-platinum hover:bg-graphite rounded">Serviços</a>
+                <a href="#quote" class="block px-3 py-2 text-platinum hover:bg-graphite rounded">Obtenha um Orçamento</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Hero -->
+    <header class="gradient-bg h-screen flex items-center">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Soluções Personalizadas de Identidade Visual</h1>
+                <p class="text-xl mb-8 text-platinum opacity-90">Transformando marcas através de identidades visuais distintas e soluções MicroSaaS.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#quote" class="cta-button bg-platinum text-jet-black px-8 py-3 rounded-md font-semibold hover:bg-white">Comece Agora</a>
+                    <a href="#services" class="border-2 border-platinum text-platinum px-8 py-3 rounded-md font-semibold hover:bg-graphite transition-colors">Nossos Serviços</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <svg class="w-full max-w-md" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="100" y="50" width="300" height="300" rx="20" fill="#333333"/>
+                    <rect x="150" y="100" width="200" height="40" rx="5" fill="#E5E5E5"/>
+                    <rect x="150" y="160" width="200" height="20" rx="5" fill="#E5E5E5" opacity="0.7"/>
+                    <rect x="150" y="190" width="200" height="20" rx="5" fill="#E5E5E5" opacity="0.7"/>
+                    <rect x="150" y="220" width="200" height="20" rx="5" fill="#E5E5E5" opacity="0.7"/>
+                    <rect x="150" y="270" width="100" height="40" rx="5" fill="#E5E5E5"/>
+                    <circle cx="400" cy="100" r="30" fill="#E5E5E5" opacity="0.2"/>
+                    <circle cx="100" cy="300" r="50" fill="#E5E5E5" opacity="0.1"/>
+                    <circle cx="450" cy="250" r="20" fill="#E5E5E5" opacity="0.15"/>
+                    <path d="M50 150C50 150 80 180 120 150C160 120 180 180 220 150" stroke="#E5E5E5" stroke-width="3" opacity="0.2"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Sobre -->
+    <section id="about" class="py-20 bg-onyx">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold mb-12">Sobre a EKEN STUDIOS</h2>
+                <p class="text-lg mb-8">A EKEN STUDIOS é um estúdio de design visionário especializado em identidade visual e soluções MicroSaaS. Combinamos visão artística com expertise técnica para criar experiências de marca distintas que ressoam com o público e impulsionam o crescimento dos negócios.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-graphite p-6 rounded-lg">
+                        <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Inovação</h3>
+                        <p class="text-platinum opacity-80 text-center">Buscamos ultrapassar os limites criativos para desenvolver identidades visuais únicas que se destacam no mercado.</p>
+                    </div>
+                    <div class="bg-graphite p-6 rounded-lg">
+                        <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Colaboração</h3>
+                        <p class="text-platinum opacity-80 text-center">Trabalhamos em estreita colaboração com os clientes para entender a visão da marca e os objetivos de negócios.</p>
+                    </div>
+                    <div class="bg-graphite p-6 rounded-lg">
+                        <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-center">Qualidade</h3>
+                        <p class="text-platinum opacity-80 text-center">Mantemos os mais altos padrões de design, garantindo que cada elemento reflita a excelência da marca.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Fundadores -->
+    <section id="founders" class="py-20 bg-jet-black">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-16 text-center">Conheça Nossos Fundadores</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="founder-card bg-graphite rounded-lg overflow-hidden">
+                <div class="h-64 bg-platinum bg-opacity-10 flex items-center justify-center">
+                    <svg class="w-32 h-32 text-platinum opacity-70" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Alex Morgan</h3>
+                    <p class="text-sm text-platinum opacity-70 mb-3">Diretor Criativo</p>
+                    <p class="text-platinum opacity-90">Com mais de 15 anos de experiência em design, Alex traz visão artística e pensamento estratégico para cada projeto de identidade de marca.</p>
+                </div>
+            </div>
+            
+            <div class="founder-card bg-graphite rounded-lg overflow-hidden">
+                <div class="h-64 bg-platinum bg-opacity-10 flex items-center justify-center">
+                    <svg class="w-32 h-32 text-platinum opacity-70" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Taylor Rivera</h3>
+                    <p class="text-sm text-platinum opacity-70 mb-3">Estrategista de Marca</p>
+                    <p class="text-platinum opacity-90">Taylor ajuda os clientes a transformar a visão da marca em identidades visuais completas que impulsionam o crescimento dos negócios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Seção Serviços -->
+    <section id="services" class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-16 text-center">Nossos Serviços</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-onyx p-8 rounded-lg">
+                    <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Design de Logotipo</h3>
+                    <p class="text-platinum opacity-80">Criamos logotipos únicos e memoráveis que capturam a essência da sua marca e ressoam com seu público-alvo.</p>
+                </div>
+                
+                <div class="service-card bg-onyx p-8 rounded-lg">
+                    <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Design de Identidade Visual</h3>
+                    <p class="text-platinum opacity-80">Desenvolvemos identidades de marca completas, incluindo paletas de cores, tipografia e diretrizes completas da marca.</p>
+                </div>
+                
+                <div class="service-card bg-onyx p-8 rounded-lg">
+                    <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Automação Micro SaaS</h3>
+                    <p class="text-platinum opacity-80">Oferecemos soluções de automação personalizadas para empresas, ajudando-as a otimizar suas operações com plataformas Micro SaaS.</p>
+                </div>
+                
+                <div class="service-card bg-onyx p-8 rounded-lg">
+                    <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Design de Sites e UI</h3>
+                    <p class="text-platinum opacity-80">Criamos sites visualmente atraentes e interfaces de usuário amigáveis que se alinham perfeitamente à identidade da sua marca.</p>
+                </div>
+                
+                <div class="service-card bg-onyx p-8 rounded-lg">
+                    <div class="bg-platinum bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Materiais de Marketing e Branding</h3>
+                    <p class="text-platinum opacity-80">Desenhamos cartões de visita, brochuras e outros materiais de marketing para manter a consistência da marca em todos os pontos de contato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Seção Orçamento -->
+<section id="quote" class="py-20 bg-graphite">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto bg-onyx rounded-lg p-8 md:p-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">OBTENHA SEU ORÇAMENTO – 100% Gratuito</h2>
+                <p class="text-xl text-platinum opacity-90">Conte-nos sobre o seu projeto e retornaremos dentro de 24 horas.</p>
+            </div>
+            <form id="quote-form" class="space-y-6" onsubmit="sendQuoteToWhatsApp(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-platinum mb-2">Nome</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-jet-black border border-graphite rounded-md focus:outline-none focus:ring-2 focus:ring-platinum text-platinum" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-platinum mb-2">E-mail</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-jet-black border border-graphite rounded-md focus:outline-none focus:ring-2 focus:ring-platinum text-platinum" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="company" class="block text-sm font-medium text-platinum mb-2">Nome da Empresa</label>
+                    <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-jet-black border border-graphite rounded-md focus:outline-none focus:ring-2 focus:ring-platinum text-platinum">
+                </div>
+                <div>
+                    <label for="service" class="block text-sm font-medium text-platinum mb-2">Serviço de Interesse</label>
+                    <select id="service" name="service" class="w-full px-4 py-3 bg-jet-black border border-graphite rounded-md focus:outline-none focus:ring-2 focus:ring-platinum text-platinum">
+                        <option value="">Selecione um serviço</option>
+                        <option value="logo">Design de Logotipo</option>
+                        <option value="identity">Design de Identidade Visual</option>
+                        <option value="microsaas">Automação Micro SaaS</option>
+                        <option value="website">Design de Sites e UI</option>
+                        <option value="collateral">Marketing e Branding</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-platinum mb-2">Detalhes do Projeto</label>
+                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-jet-black border border-graphite rounded-md focus:outline-none focus:ring-2 focus:ring-platinum text-platinum resize-none" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="cta-button bg-platinum text-jet-black px-8 py-4 rounded-md font-semibold text-lg hover:bg-white transition-colors">Solicitar Orçamento</button>
+                </div>
+            </form>
+            <div id="form-success" class="hidden mt-6 p-4 bg-green-800 bg-opacity-20 border border-green-500 rounded-md">
+                <p class="text-green-300 text-center">Obrigado pelo seu interesse! Retornaremos com um orçamento dentro de 24 horas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Função para enviar o orçamento para o WhatsApp
+    function sendQuoteToWhatsApp(event) {
+        event.preventDefault();  // Impede o envio normal do formulário
+
+        // Obtendo os valores do formulário
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var company = document.getElementById('company').value;
+        var service = document.getElementById('service').value;
+        var message = document.getElementById('message').value;
+
+        // Criando a mensagem para WhatsApp
+        var whatsappMessage = `Olá EKKEN STUDIOS! Meu nome é ${name}, meu e-mail é ${email}. 
+        Trabalho na empresa ${company} e estou interessado no serviço ${service}. 
+        Detalhes do projeto: ${message}`;
+
+        // Substitua 'seu-numero' pelo seu número do WhatsApp
+        var whatsappLink = `https://wa.me/55[seu-numero]?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Abrir o link do WhatsApp
+        window.open(whatsappLink, '_blank');
+
+        // Mostrar a mensagem de sucesso
+        document.getElementById('form-success').classList.remove('hidden');
+        document.getElementById('quote-form').reset(); // Limpa o formulário após o envio
+    }
+</script>
+
+    <!-- Rodapé -->
+    <footer class="bg-jet-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <svg class="w-10 h-10 mr-2" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="50" height="50" rx="10" fill="#333333"/>
+                            <path d="M10 15H40M10 25H40M10 35H40" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M15 10L15 40M25 10L25 40M35 10L35 40" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <span class="text-xl font-bold tracking-wider text-white">EKEN STUDIOS</span>
+                    </div>
+                    <p class="text-platinum opacity-70 mt-2">Identidade Visual & Soluções MicroSaaS</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-platinum hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-platinum hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
