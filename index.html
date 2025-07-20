@@ -358,9 +358,16 @@
         var message = document.getElementById('message').value;
 
         // Criando a mensagem para WhatsApp
-        var whatsappMessage = `Olá EKKEN STUDIOS! Meu nome é ${name}, meu e-mail é ${email}. 
-        Trabalho na empresa ${company} e estou interessado no serviço ${service}. 
-        Detalhes do projeto: ${message}`;
+       var whatsappMessage = `Olá, EKKEN STUDIOS! 👋 
+
+Meu nome é ${name} e meu e-mail é ${email}.  
+Atualmente, trabalho na empresa ${company} e estou interessado(a) no serviço **${service}**.  
+
+📌 **Detalhes do projeto:**  
+${message}  
+
+Aguardo o retorno de vocês!  
+Muito obrigado(a)! ✨`;
 
         // Substitua 'seu-numero' pelo seu número do WhatsApp
         var whatsappLink = `https://wa.me/5563992782751?text=${encodeURIComponent(whatsappMessage)}`;
